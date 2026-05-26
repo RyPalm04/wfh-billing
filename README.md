@@ -1,49 +1,50 @@
-  # Wright Funeral Home Billing System
+  # Wright Funeral Home Billing Statement Generator
   
-  A full-stack billing statement generator built for Wright Funeral Home. The system allows staff to create, manage, and export itemized billing statements as print-ready PDFs.
-
+  [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-4a7c59?style=for-the-badge)](https://wfh-billing-git-beta2.vercel.app/)
+  ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-6db33f?style=flat-square&logo=springboot&logoColor=white)
+  ![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=black)
+  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=flat-square&logo=postgresql&logoColor=white)
+  ![Java](https://img.shields.io/badge/Java-21-f89820?style=flat-square&logo=openjdk&logoColor=white)
+  ![Google Cloud Run](https://img.shields.io/badge/Cloud%20Run-deployed-4285f4?style=flat-square&logo=googlecloud&logoColor=white)
+  ![Vercel](https://img.shields.io/badge/Vercel-deployed-000000?style=flat-square&logo=vercel&logoColor=white)
+  
+  A full-stack billing statement generator for funeral homes — build itemized statements, apply service packages, and export professional PDF invoices.
+  
+  ![App screenshot](screenshot.png)
+  
+  ## Live Demo
+  
+  **[https://wfh-billing-git-beta2.vercel.app/](https://wfh-billing-git-beta2.vercel.app/)**
+  
+  > Currently in beta. No account required — browse freely.
+  
   ## Repositories
-
-  | Repo | Description |                                                                                                                                  
-  |------|-------------|
-  | [wfh-billing-api](https://github.com/RyPalm04/wfh-billing-api) | Spring Boot REST API — statement persistence, catalog management, PDF generation |
-  | [wfh-billing-web](https://github.com/RyPalm04/wfh-billing-web) | React web app — create, edit, and manage statements from any browser |
-  | [wfh-billing-desktop](https://github.com/RyPalm04/wfh-billing-desktop) | JavaFX desktop app — standalone client for local use |
-
+  
+  | Repo | Description | Stack |
+  |------|-------------|-------|
+  | [wfh-billing-api](https://github.com/RyPalm04/wfh-billing-api) | REST API | Spring Boot 3.5, PostgreSQL, Cloud Run |
+  | [wfh-billing-web](https://github.com/RyPalm04/wfh-billing-web) | Web frontend | React 19, Vite, Vercel | 
+  | [wfh-billing-desktop](https://github.com/RyPalm04/wfh-billing-desktop) | Desktop app | JavaFX, jpackage |
+  
   ## Architecture
   
-  The web app and desktop app both communicate with a central REST API over HTTPS using API key authentication. The API handles all business logic, data persistence, and PDF
-  generation.
+  The web app and desktop app share a single REST API backed by a PostgreSQL database on Google Cloud Run. Statement line items are stored as JSONB snapshots — preserving name
+  and price at the time of save regardless of future catalog changes. PDF generation runs server-side via JasperReports.
 
-  - **Web App** (Vercel) → **API** (Google Cloud Run) → **PostgreSQL** (Cloud SQL)
-  - **Desktop App** → **API** (Google Cloud Run) → **PostgreSQL** (Cloud SQL)
-
-  ## Tech Stack
-
-  **API**
-  - Java 21, Spring Boot 3.5
-  - Spring Data JDBC, Flyway migrations
-  - JasperReports PDF generation
-  - PostgreSQL (Cloud SQL)
-  - Deployed on Google Cloud Run
-
-  **Web**
-  - React 19, Vite
-  - React Router, react-hot-toast
-  - Deployed on Vercel                                                                                                                                    
-
-  **Desktop**
-  - Java 21, JavaFX
-  - Packaged with jpackage (macOS, Windows, Linux)
+  The React web app and JavaFX desktop app both communicate with the Spring Boot API over HTTP. The API handles all business logic, database persistence, and PDF generation.
   
-  ## Status
-  
-  Currently in beta.
+  ## Features
 
-  - **Web app:** [wfh-billing-git-beta2.vercel.app](https://wfh-billing-git-beta2.vercel.app)
-  - **Desktop app:** [Download latest beta](https://github.com/RyPalm04/wfh-billing-desktop/releases)
+  - Build itemized statements across services, merchandise, special charges, and cash advances
+  - Apply service packages with per-item inclusion tracking
+  - Sales tax calculation with configurable rate
+  - Server-side PDF export with professional layout
+  - Full statement history with edit and delete
   
   ## Roadmap
+  
+  Multi-tenant SaaS — see [Epic #39](https://github.com/RyPalm04/wfh-billing/issues/39).
+  
+  ## License
 
-  The long-term direction is a multi-tenant SaaS platform marketable to multiple funeral homes — with per-tenant catalogs, user authentication, admin portal, and custom branding
-   on statements. See the [open issues](https://github.com/RyPalm04/wfh-billing/issues) for tracked work.
+  Proprietary. Source is visible for portfolio purposes. Commercial use, redistribution, or derivative works require written permission. See [LICENSE](LICENSE).
