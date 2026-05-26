@@ -11,23 +11,12 @@
   | [wfh-billing-desktop](https://github.com/RyPalm04/wfh-billing-desktop) | JavaFX desktop app — standalone client for local use |
 
   ## Architecture
+  
+  The web app and desktop app both communicate with a central REST API over HTTPS using API key authentication. The API handles all business logic, data persistence, and PDF
+  generation.
 
-  ┌─────────────────┐     ┌─────────────────┐
-  │  React Web App  │     │ JavaFX Desktop  │
-  │   (Vercel)      │     │     App         │
-  └────────┬────────┘     └────────┬────────┘
-           │                       │
-           └──────────┬────────────┘
-                      │ HTTPS + API Key
-           ┌──────────▼────────────┐
-           │   Spring Boot API     │
-           │  (Google Cloud Run)   │
-           └──────────┬────────────┘
-                      │
-           ┌──────────▼────────────┐
-           │     PostgreSQL        │
-           │  (Cloud SQL)          │
-           └───────────────────────┘
+  - **Web App** (Vercel) → **API** (Google Cloud Run) → **PostgreSQL** (Cloud SQL)
+  - **Desktop App** → **API** (Google Cloud Run) → **PostgreSQL** (Cloud SQL)
 
   ## Tech Stack
 
