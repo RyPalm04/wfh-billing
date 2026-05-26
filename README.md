@@ -37,8 +37,11 @@
   - Packaged with jpackage (macOS, Windows, Linux)
   
   ## Status
+  
+  Currently in beta.
 
-  Currently in beta. The web app is live at [wfh-billing-git-beta2.vercel.app](https://wfh-billing-git-beta2.vercel.app).
+  - **Web app:** [wfh-billing-git-beta2.vercel.app](https://wfh-billing-git-beta2.vercel.app)
+  - **Desktop app:** [Download latest beta](https://github.com/RyPalm04/wfh-billing-desktop/releases)
   
   ## Roadmap
 
