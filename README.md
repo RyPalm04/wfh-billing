@@ -52,16 +52,19 @@ at the time of save regardless of future catalog changes.
 
 ## Features
 
+**Live in the v2.0.0 demo:**
 - Itemized billing statements across services, merchandise, special charges, and cash advances
 - Service packages with per-item inclusion tracking and legacy package support
 - Configurable sales tax rate with server-side calculation
 - Server-side PDF export via JasperReports with professional layout
 - Full statement history with save, edit, and delete
 - Native desktop app (Windows/macOS) packaged with jpackage, sharing the same API as the web app
+- Feedback system integrated across both clients
+
+**In active development (v3.0.0):**
 - Stripe subscription billing with automated tenant provisioning via webhook
 - Multi-tenant SaaS architecture with per-tenant data isolation
 - Desktop license key authentication generated on subscription and validated per-request
-- Feedback system integrated across both clients
 
 ## Roadmap
 
@@ -70,6 +73,17 @@ at the time of save regardless of future catalog changes.
 | v2.0.0 | June 2026 | Stable beta — web + desktop, full statement lifecycle |
 | v3.0.0 | November 2026 | Commercial launch — multi-location, session security, password reset |
 | v4.0.0 | March 2027 | Reporting, statement finalization, PDF archiving |
+
+See the [full roadmap](../../wiki/Roadmap) for all milestones.
+
+## Wiki
+
+| Page | Description |
+|------|-------------|
+| [Multi-Tenant Design](../../wiki/Multi-Tenant-Design) | Architecture decisions behind the SaaS pivot — tenant isolation, auth design, and Stripe integration |
+| [Roadmap](../../wiki/Roadmap) | Full milestone breakdown through v5.0.0 and beyond |
+| [Refactoring Work](../../wiki/Refactoring-Work) | Tracked refactoring candidates across all repos with rationale |
+| [Architecture](../../wiki/Architecture) | Early design document — reflects pre-v2.0.0 planning |
 
 ## License
 
